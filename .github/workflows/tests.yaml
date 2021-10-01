@@ -56,6 +56,9 @@ jobs:
                   path: ${{ steps.composer-cache.outputs.dir }}
                   key: ${{ runner.os }}-${{ matrix.php-version }}-composer-${{ hashFiles('composer.json') }}
                   restore-keys: ${{ runner.os }}-${{ matrix.php-version }}-composer-
+            - name: "Composer install"
+              id: install
+              run: composer install --no-interaction --no-progress
 
             - name: "Prepare system"
               run: ./vendor/bin/prepare_project_edition.sh oss ${PROJECT_VERSION} ${COMPOSE_FILE}
