@@ -7,7 +7,8 @@
     <testsuites>
         <testsuite name="codeinIbexaSeoToolkit">
             <directory>./tests/bundle/</directory>
-            <directory>./tests/lib</directory>
+            <exclude>./tests/bundle/Controller</exclude>
+            <exclude>./tests/bundle/Analysis</exclude>
         </testsuite>
     </testsuites>
 

@@ -1,0 +1,26 @@
+<phpunit
+  backupGlobals="false"
+  backupStaticAttributes="false"
+  bootstrap="vendor/autoload.php"
+  convertErrorsToExceptions="true"
+  convertNoticesToExceptions="true"
+  convertWarningsToExceptions="true"
+  beStrictAboutTestsThatDoNotTestAnything="false"
+  colors="true"
+  >
+  <php>
+    <env name="EZP_TEST_REST_HOST" value="localhost"/>
+    <env name="EZP_TEST_REST_AUTH" value="admin:publish"/>
+  </php>
+  <testsuites>
+    <testsuite name="REST Functional Tests">
+      <directory>./tests/bundle/Controller</directory>
+      <directory>./tests/bundle/Analysis</directory>
+    </testsuite>
+  </testsuites>
+  <filter>
+    <whitelist>
+      <directory>src</directory>
+    </whitelist>
+  </filter>
+</phpunit>

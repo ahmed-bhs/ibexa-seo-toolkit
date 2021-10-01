@@ -44,36 +44,55 @@ final class ConfigurationTest extends TestCase
                 ],
             ],
         ]);
+
         $this->assertSame([
             'system' => [
                 'default' => [
                     'analysis' => [
-                        'content_types' => [],
-                        'blocklist' => [],
+                        'content_types' => [
+                        ],
+                        'siteaccesses_blocklist' => [
+                        ],
+                        'blocklist' => [
+                        ],
                     ],
                     'sitemap' => [
                         'split_by' => 'content_type',
+                        'max_items_per_page' => 1000,
+                        'use_images' => false,
                         'blocklist' => [
-                            'locations' => [],
-                            'subtrees' => [],
-                            'content_type_identifiers' => [],
+                            'locations' => [
+                            ],
+                            'subtrees' => [
+                            ],
+                            'content_type_identifiers' => [
+                            ],
                         ],
                         'passlist' => [
-                            'locations' => [],
-                            'subtrees' => [],
-                            'content_type_identifiers' => [],
+                            'locations' => [
+                            ],
+                            'subtrees' => [
+                            ],
+                            'content_type_identifiers' => [
+                            ],
                         ],
                     ],
                     'robots' => [
-                        'user_agents' => [],
-                        'sitemap_routes' => [],
-                        'sitemap_urls' => [],
+                        'user_agents' => [
+                        ],
+                        'sitemap_routes' => [
+                        ],
+                        'sitemap_urls' => [
+                        ],
                     ],
                     'metas' => [
-                        'default_metas' => [],
-                        'field_type_metas' => [],
+                        'default_metas' => [
+                        ],
+                        'field_type_metas' => [
+                        ],
                     ],
-                    'links' => [],
+                    'links' => [
+                    ],
                     'hreflang' => [
                         'enabled' => false,
                     ],
