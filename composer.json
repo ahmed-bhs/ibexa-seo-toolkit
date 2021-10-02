@@ -62,5 +62,10 @@
         "pslam": "vendor/bin/psalm -c pslam.xml.dist --no-cache",
         "phpcsfixer": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff --dry-run",
         "twigcs" : "vendor/bin/twigcs bundle/templates"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.3.0"
+        }
     }
 }
