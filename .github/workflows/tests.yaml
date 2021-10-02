@@ -14,7 +14,7 @@ env:
     # is deprecated, "Monolog\Handler\FingersCrossed\ActivationStrategyInterface" expected.
     SYMFONY_DEPRECATIONS_HELPER: 40
     COMPOSE_FILE: "doc/docker/base-dev.yml:doc/docker/selenium.yml"
-    PROJECT_VERSION: "3.2.0"
+    PROJECT_VERSION: "3.1.0"
     TEST_CONFIG: "phpunit.xml"
 jobs:
     test:
