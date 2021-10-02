@@ -18,18 +18,11 @@ env:
 jobs:
     test:
         name: "${{ matrix.operating-system }} / PHP ${{ matrix.php-version }}"
-        runs-on: ${{ matrix.operating-system }}
-        continue-on-error: false
-
+        runs-on: ubuntu-latest
         strategy:
+            fail-fast: false
             matrix:
-                operating-system: ['ubuntu-latest']
-                php-version: ['7.3', '7.4', '8.0']
-                include:
-                    - operating-system: 'macos-latest'
-                      php-version: '8.0'
-                    - operating-system: 'windows-latest'
-                      php-version: '8.0'
+                php-version: ['7.3']
 
         steps:
             - name: "Checkout code"
@@ -39,12 +32,9 @@ jobs:
               uses: shivammathur/setup-php@2.7.0
               with:
                   coverage: "none"
-                  extensions: "intl, mbstring, pdo_sqlite"
+                  extensions: intl
                   php-version: ${{ matrix.php-version }}
                   tools: composer:v2
-
-            - name: "Add PHPUnit matcher"
-              run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
             - name: "Set composer cache directory"
               id: composer-cache
@@ -54,11 +44,12 @@ jobs:
               uses: actions/cache@v2.1.2
               with:
                   path: ${{ steps.composer-cache.outputs.dir }}
-                  key: ${{ runner.os }}-${{ matrix.php-version }}-composer-${{ hashFiles('composer.json') }}
+                  key: ${{ runner.os }}-${{ matrix.php-version }}-composer-${{ hashFiles('composer.lock') }}
                   restore-keys: ${{ runner.os }}-${{ matrix.php-version }}-composer-
+
             - name: "Composer install"
               id: install
-              run: composer require --dev ibexa/ci-scripts:"^0.1@dev"
+              run: composer require --dev ibexa/ci-scripts:"^0.1@dev" --no-interaction --no-progress
 
             - name: "Prepare system"
               run: ./vendor/bin/prepare_project_edition.sh oss ${PROJECT_VERSION} ${COMPOSE_FILE}
