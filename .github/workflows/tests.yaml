@@ -58,7 +58,7 @@ jobs:
                   restore-keys: ${{ runner.os }}-${{ matrix.php-version }}-composer-
             - name: "Composer install"
               id: install
-              run: composer require --dev ibexa/ci-scripts
+              run: composer require --dev ibexa/ci-scripts:"^0.1@dev"
 
             - name: "Prepare system"
               run: ./vendor/bin/prepare_project_edition.sh oss ${PROJECT_VERSION} ${COMPOSE_FILE}
