@@ -6,6 +6,7 @@ env:
     fail-fast: true
     PHPUNIT_FLAGS: "-v"
     SYMFONY_PHPUNIT_DIR: "$HOME/symfony-bridge/.phpunit"
+    REST_TEST_CONFIG: "phpunit-integration-rest.xml"
     SYMFONY_REQUIRE: ">=4.4"
     # 40x: Since symfony/monolog-bridge 5.2:
     # Passing an actionLevel (int|string) as constructor's 3rd argument of
@@ -13,7 +14,7 @@ env:
     # is deprecated, "Monolog\Handler\FingersCrossed\ActivationStrategyInterface" expected.
     SYMFONY_DEPRECATIONS_HELPER: 40
     COMPOSE_FILE: "doc/docker/base-dev.yml:doc/docker/selenium.yml"
-    PROJECT_VERSION: "^1.0"
+    PROJECT_VERSION: "^3.3"
     TEST_CONFIG: "phpunit.xml"
 jobs:
     test:
